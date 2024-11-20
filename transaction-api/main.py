@@ -39,26 +39,26 @@ async def post_transaction(
 
 @app.get("/api/v1/transaction/{id_num}")
 async def get_transaction(id_num: int, session: Session = Depends(get_session)):
-
     transaction = session.get(Transaction, id_num)
 
     if not transaction:
-        raise HTTPException(status_code=404, detail=f"Transaction with id {id_num} not found")
+        raise HTTPException(
+            status_code=404, detail=f"Transaction with id {id_num} not found"
+        )
 
     return transaction
 
 
 @app.put("/api/v1/transaction/{id_num}")
 async def update_transaction(
-        t: EditTransaction,
-        id_num: int,
-        session: Session = Depends(get_session)
+    t: EditTransaction, id_num: int, session: Session = Depends(get_session)
 ):
-
     transaction: Type[Transaction] = session.get(Transaction, id_num)
 
     if not transaction:
-        raise HTTPException(status_code=404, detail=f"Transaction with id {id_num} not found")
+        raise HTTPException(
+            status_code=404, detail=f"Transaction with id {id_num} not found"
+        )
 
     if t.name is not None:
         transaction.name = t.name
