@@ -359,6 +359,7 @@ source = { virtual = "." }
 dependencies = [
     { name = "fastapi" },
     { name = "pyright" },
+    { name = "pytest" },
     { name = "sqlmodel" },
     { name = "uvicorn" },
 ]
@@ -374,6 +375,7 @@ dev = [
 requires-dist = [
     { name = "fastapi", specifier = ">=0.115.4" },
     { name = "pyright", specifier = ">=1.1.387" },
+    { name = "pytest", specifier = ">=8.3.3" },
     { name = "sqlmodel", specifier = ">=0.0.22" },
     { name = "uvicorn", specifier = ">=0.32.0" },
 ]
